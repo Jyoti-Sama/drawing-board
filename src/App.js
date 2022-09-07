@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import DrawingHub from './components/DrawingHub';
+import LoginAndRegister from './components/LoginAndRegister'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [pageType, setpageType] = useState("login")
+
+    const setPageHandler = (pageName) => setpageType(pageName);
+
+    return (
+        <div style={{ height: "100vh", width: "100vw" }}>
+            {
+                pageType === "login" || pageType === "register" ?
+                    <LoginAndRegister pageType={pageType} setPageHandler={setPageHandler} /> :
+                    <DrawingHub />
+            }
+
+            {
+                pageType === "drawPage" ? null :
+                    <div style={{ position: "absolute", top: "5%", right: "5%" }}>
+                        {
+                            pageType === "login" ?
+                                <button onClick={() => setpageType("register")} style={{ padding: "5px 10px" }}>register</button>
+                                :
+                                <button onClick={() => setpageType("login")} style={{ padding: "5px 10px" }}>login</button>
+                        }
+                    </div>
+            }
+
+            {/* <button onClick={() => setpageType("drawPage")}>draw</button> */}
+        </div>
+    )
 }
 
-export default App;
+export default App
