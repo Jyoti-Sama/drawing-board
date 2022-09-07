@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import io from 'socket.io-client'
 
 function EventWatch({allUsers}) {
-    const socket = io("http://localhost:5000")
+    const socket = io("https://drawing-app-internship.herokuapp.com")
     const [popup, setpopup] = useState('')
 
     useEffect(() => {

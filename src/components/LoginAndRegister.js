@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import InputField from './InputField'
 
-const backendUrl = "http://localhost:5000"
+const backendUrl = "https://drawing-app-internship.herokuapp.com"
 
 function LoginAndRegister({ pageType, setPageHandler }) {
     const [name, setname] = useState('')
