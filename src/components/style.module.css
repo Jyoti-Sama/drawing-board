@@ -1,0 +1,13 @@
+.mycanvas {
+    background-color: silver;
+    height: 100px;
+}
+
+.timeIndicator {
+    height: 100px;
+    width: 1px;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    transform: translateX(20px);
+}
