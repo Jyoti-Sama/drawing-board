@@ -198,53 +198,61 @@ function Player() {
     }
 
     return (
-        <div>
-            <div>player</div>
+        <div className={styles.container}>
 
-            <div>
-                <ReactPlayer
-                    controls
-                    progressInterval={1000}
-                    onDuration={(data) => { console.log(data); setvideoLength(data * 100) }}
-                    onPause={(data) => { console.log(data.target.currentTime, " <- paused at"); setcurrentDuration(data.target.currentTime * 100) }}
-                    onPlay={(data) => console.log("playing")}
-                    onStart={(data) => console.log("playing for the first time")}
-                    onSeek={data => { console.log('onSeek', data); setcurrentDuration(data * 100) }}
-                    url={url}
+            <div className={styles.row1}>
+                <div className={styles.videoContainer}>
+                    <ReactPlayer
+                        controls
+                        progressInterval={1000}
+                        onDuration={(data) => { console.log(data); setvideoLength(data * 100) }}
+                        onPause={(data) => { console.log(data.target.currentTime, " <- paused at"); setcurrentDuration(data.target.currentTime * 100) }}
+                        onPlay={(data) => console.log("playing")}
+                        onStart={(data) => console.log("playing for the first time")}
+                        onSeek={data => { console.log('onSeek', data); setcurrentDuration(data * 100) }}
+                        url={url}
 
 
-                    height={"240px"}
+                        height={"360px"}
 
-                    config={{
-                        file: {
-                            tracks: [
-                                { kind: 'subtitles', src: "./filename.vtt", srcLang: 'en', default: true },
-                            ]
-                        }
-                    }}
-                />
+                        config={{
+                            file: {
+                                tracks: [
+                                    { kind: 'subtitles', src: "./filename.vtt", srcLang: 'en', default: true },
+                                ]
+                            }
+                        }}
+                    />
+                </div>
+
+                <div className={styles.inputField}>
+                    {/* <input
+                    
+                // style={{borderColor: valueErr ? "red" : "black"}}
+                /> */}
+
+                    <textarea
+                        style={{ padding: "10px 20px", outline: "none", width: "220px" }}
+                        value={value}
+                        onChange={(e) => setvalue(e.target.value)}
+                    />
+                    <button onClick={() => addTrascript()}>Add</button>
+                </div>
             </div>
 
-            <div style={{ /* overflow: "hidden", */ transform: `translateX(100px)` }}>{/* <div style={{ height: "100px", width: `${videoLength}px`, background: "silver", transform: `translateX(-${currentDuration}px)` }}></div> */}
+            <div className={styles.audioVisulizer} style={{ /* overflow: "hidden", */ transform: `translateX(100px)` }}>{/* <div style={{ height: "100px", width: `${videoLength}px`, background: "silver", transform: `translateX(-${currentDuration}px)` }}></div> */}
                 <canvas onClick={(e) => setIndicator(e)} id="canvas" height="100" width={`${videoLength + 40}`} className={styles.mycanvas} style={{ transform: `translateX(-${currentDuration}px)` }}></canvas>
                 <div className={styles.timeIndicator}></div>
 
                 <div className={styles.timeIndicator} id="indicatoe-2"></div>
             </div>
 
-            <div>
-                <input
-                    style={{ padding: "10px 20px", outline: "none", width: "220px" }}
-                    value={value}
-                    onChange={(e) => setvalue(e.target.value)}
-                // style={{borderColor: valueErr ? "red" : "black"}}
-                />
+
+            <div className={styles.doneBtn}>
+                <button onClick={() => handelDone()}>done</button>
             </div>
 
-            <button onClick={() => addTrascript()}>Add</button>
-            <button onClick={() => handelDone()}>done</button>
-
-            <audio id="myAudio" controls src={url}></audio>
+            {/* <audio id="myAudio" controls src={url}></audio> */}
         </div>
     )
 }

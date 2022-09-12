@@ -11,3 +11,74 @@
     top: 0;
     transform: translateX(20px);
 }
+
+.container{
+    height: 100%;
+    width: 100%;
+
+}
+
+.row1 {
+    height: 70%;
+    width: 100%;
+    display: flex;
+}
+
+.videoContainer{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputField {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputField > textarea {
+    height: 50%;
+    width: 80%;
+    background-color: rgb(59, 59, 59);
+    color: aliceblue;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+}
+
+.inputField > button{
+    margin-top: 50px;
+    padding: 10px 20px;border-radius: 5px;
+    background-color: rgb(196, 229, 251);
+}
+
+.inputField > button:active {
+    color: wheat;
+    background-color: rgb(59, 59, 59);
+}
+
+.audioVisulizer{
+
+}
+
+.doneBtn {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doneBtn > button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgb(210, 255, 210);
+}
+
+.doneBtn >  button:active {
+    color: wheat;
+    background-color: rgb(59, 59, 59);
+}
